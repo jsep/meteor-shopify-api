@@ -6,10 +6,9 @@
  * If successfull, then we log the shopify user in
  * ------------------------------------*/
 Router.route('shopifyAuthenticate', {
-	path: '/shopify/authenticate',
+    path: '/shopify/authenticate',
 
     onBeforeAction: function() {
-
         var params = this.params.query;
 
         // Check first that we have all of the required shopify params
@@ -25,7 +24,8 @@ Router.route('shopifyAuthenticate', {
     },
 
 	action: function() {
-        
+        this.render("loading");
+
         var code = this.params.query.code;
         var shop = this.params.query.shop;
         var that = this;
